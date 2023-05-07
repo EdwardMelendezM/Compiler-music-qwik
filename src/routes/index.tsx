@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import Login from "~/components/Login";
 
 export default component$(()=>{
+  
   return (
     <div
       class='
@@ -10,7 +11,7 @@ export default component$(()=>{
         flex
         items-center
         justify-center
-        '
+        ' 
     >
       <Login />
     </div>

@@ -1,16 +1,15 @@
 import { component$ } from "@builder.io/qwik";
 interface InputProps{
-  formValue:any
   disabled?:boolean
+  onChange?:any
 }
 
-export default component$(({ formValue, disabled }: InputProps)=>{
-
+export default component$(({ disabled, onChange }: InputProps)=>{
   return (
     <input
       type="text"
       placeholder="user1@gmail.com"
-      value={formValue}
+      onChange$={onChange}
       disabled={disabled}
       class='
           text-lg

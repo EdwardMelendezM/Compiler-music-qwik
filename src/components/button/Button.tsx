@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import {component$ } from "@builder.io/qwik";
 
 
 interface ButtonProps{
@@ -7,8 +7,8 @@ interface ButtonProps{
 }
 
 export default component$(({
-  onSubmit,
-  disabled
+  disabled,
+  onSubmit
 }:ButtonProps)=>{
   return (
     <button

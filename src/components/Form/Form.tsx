@@ -7,15 +7,16 @@ interface FormProps{
   label:string
   formValue?:any
   onSubmit?:any
+  onChange?:any
   disabled?:boolean
 }
 
 export default component$(({
   title,
   label,
-  formValue,
   onSubmit,
-  disabled=false
+  disabled,
+  onChange
 }: FormProps)=>{
   return (
       <div class='
@@ -38,7 +39,8 @@ export default component$(({
           </div>
           <Input
             disabled={disabled}
-            formValue={formValue.email} />
+            onChange={onChange}
+            />
           <Button
             disabled={disabled}
             onSubmit={onSubmit}

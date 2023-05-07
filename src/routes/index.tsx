@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import Form from "~/components/Form/Form";
+import Login from "~/components/Login";
 
 export default component$(()=>{
   return (
@@ -10,8 +10,9 @@ export default component$(()=>{
         flex
         items-center
         justify-center
-        ' >
-      <Form title="Login" label="Ingrese su email" />
+        '
+    >
+      <Login />
     </div>
   )
 })

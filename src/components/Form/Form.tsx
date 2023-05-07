@@ -5,9 +5,18 @@ import Button from "../button/Button";
 interface FormProps{
   title:string
   label:string
+  formValue?:any
+  onSubmit?:any
+  disabled?:boolean
 }
 
-export default component$(({ title,label }: FormProps)=>{
+export default component$(({
+  title,
+  label,
+  formValue,
+  onSubmit,
+  disabled=false
+}: FormProps)=>{
   return (
       <div class='
         w-[380px]
@@ -27,8 +36,13 @@ export default component$(({ title,label }: FormProps)=>{
           ' >
             {label}
           </div>
-          <Input />
-          <Button />
+          <Input
+            disabled={disabled}
+            formValue={formValue.email} />
+          <Button
+            disabled={disabled}
+            onSubmit={onSubmit}
+            />
       </div>
   )
 })

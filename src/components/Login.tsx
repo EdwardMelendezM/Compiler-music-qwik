@@ -1,26 +1,11 @@
-import { $, component$,useContextProvider,useStore } from "@builder.io/qwik";
+import { component$} from "@builder.io/qwik";
 import Form from "./form/Form";
-import { AuthContext } from "~/context/authContext";
+import useLoginHook from "~/hooks/useLogin";
+
 
 export default component$(()=>{
-  
-  const useLogin = useStore({
-    email:'',
-    pass:'',
-    isCorrectEmail:false
-  })
-  useContextProvider(AuthContext, useLogin)
-
-  const handleChangeInput =$((e:any)=>{
-    useLogin.email=e.target.value
-  })
-  
-  const handleSubmitValue = $(()=>{
-    if (!useLogin.email) return 
-    console.log("El valor de email es:", useLogin.email);
-  
-  })
-
+  const { handleChangeInput, handleSubmitValue } = useLoginHook()
+ 
   return(
     <Form
       title="Login"

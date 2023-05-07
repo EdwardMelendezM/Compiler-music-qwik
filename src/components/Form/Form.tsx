@@ -5,7 +5,6 @@ import Button from "../button/Button";
 interface FormProps{
   title:string
   label:string
-  formValue?:any
   onSubmit?:any
   onChange?:any
   disabled?:boolean
@@ -16,7 +15,7 @@ export default component$(({
   label,
   onSubmit,
   disabled,
-  onChange
+  onChange,
 }: FormProps)=>{
   return (
       <div class='

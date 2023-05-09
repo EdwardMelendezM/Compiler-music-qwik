@@ -12,7 +12,6 @@ export default component$(()=>{
         justify-center
         ' 
     >
-      
       <Login />
     </div>
   )

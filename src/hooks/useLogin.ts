@@ -1,7 +1,9 @@
 import { $, useContextProvider, useStore } from "@builder.io/qwik";
+import { useNavigate } from "@builder.io/qwik-city";
 import { AuthContext } from "~/context/authContext";
 
 const useLoginHook = () => {
+  const navigate = useNavigate()
   const useLogin = useStore({
     email: '',
     pass: '',
@@ -38,7 +40,7 @@ const useLoginHook = () => {
         return
       }
       useLogin.auth=true
-      
+      navigate('/music')
     }
     
   })

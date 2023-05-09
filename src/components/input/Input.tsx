@@ -3,9 +3,10 @@ import { AuthContext } from "~/context/authContext";
 interface InputProps{
   disabled?:boolean
   onChange?:any
+  type?:string
 }
 
-export default component$(({ disabled, onChange }: InputProps)=>{
+export default component$(({ disabled, onChange, type='text' }: InputProps)=>{
   const stateForm = useContext(AuthContext)
   const onClickInput =$(()=>{
     if (!stateForm.isCorrect){
@@ -14,8 +15,8 @@ export default component$(({ disabled, onChange }: InputProps)=>{
   })
   return (
     <input
-      type="text"
-      placeholder="user1@gmail.com"
+      type={type}
+      placeholder={type === 'text' ? "user1@gmail.com" : "***************"}
       onChange$={onChange}
       onClick$={onClickInput}
       disabled={disabled}

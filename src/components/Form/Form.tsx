@@ -8,6 +8,7 @@ interface FormProps{
   onSubmit?:any
   onChange?:any
   disabled?:boolean
+  type?:string
 }
 
 export default component$(({
@@ -16,6 +17,7 @@ export default component$(({
   onSubmit,
   disabled,
   onChange,
+  type
 }: FormProps)=>{
   return (
       <div class='
@@ -39,6 +41,7 @@ export default component$(({
           <Input
             disabled={disabled}
             onChange={onChange}
+            type={type}
             />
           <Button
             disabled={disabled}

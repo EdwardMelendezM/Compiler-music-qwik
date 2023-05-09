@@ -4,14 +4,26 @@ import useLoginHook from "~/hooks/useLogin";
 
 
 export default component$(()=>{
-  const { handleChangeInput, handleSubmitValue } = useLoginHook()
+  const { useLogin,handleChangeInput, handleSubmitValue } = useLoginHook()
  
   return(
-    <Form
-      title="Login"
-      label="Ingrese su email"
-      onChange={handleChangeInput}
-      onSubmit={handleSubmitValue}
-    />
+    <>
+    {
+        !useLogin.isCorrectEmail
+        ? <Form
+          title="Login"
+          label="Ingrese su email"
+          onChange={handleChangeInput}
+          onSubmit={handleSubmitValue}
+        />:
+        <Form
+          title="Login"
+          label="Ingrese su contraseña"
+          onChange={handleChangeInput}
+          onSubmit={handleSubmitValue}
+          type='password'
+          />
+    }
+    </>
   )
 })

@@ -1,6 +1,5 @@
 import { component$ } from "@builder.io/qwik";
 import Login from "~/components/Login";
-
 export default component$(()=>{
   
   return (
@@ -13,6 +12,7 @@ export default component$(()=>{
         justify-center
         ' 
     >
+      
       <Login />
     </div>
   )

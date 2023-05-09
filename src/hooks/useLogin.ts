@@ -1,6 +1,16 @@
 import { $, useContextProvider, useStore } from "@builder.io/qwik";
-import { useNavigate } from "@builder.io/qwik-city";
+import { server$, useNavigate } from "@builder.io/qwik-city";
 import { AuthContext } from "~/context/authContext";
+import { validate } from "~/helpers/validateLogin";
+
+const getUser = server$( (username:string,password:string) => {
+  console.log("Aqui se envio toda la data");
+
+  if (validate(username, password)) {
+    console.log("Esta validado");
+  }
+  return {user:'email@gmail.com',token:'adqeqw548a7s',error:true}
+})
 
 const useLoginHook = () => {
   const navigate = useNavigate()
@@ -21,7 +31,7 @@ const useLoginHook = () => {
     }
   })
 
-  const handleSubmitValue = $(() => {
+  const handleSubmitValue = $(async() => {
     if (!useLogin.isCorrectEmail){
       if (useLogin.email.length < 2) {
         useLogin.isCorrect = false
@@ -40,6 +50,11 @@ const useLoginHook = () => {
         return
       }
       useLogin.auth=true
+      const {token,error} = await getUser(useLogin.email,useLogin.pass)
+      if(!token || error){
+        useLogin.isCorrect = false
+      }
+      
       navigate('/music')
     }
     

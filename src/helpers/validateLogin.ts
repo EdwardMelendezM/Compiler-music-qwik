@@ -1,5 +1,5 @@
-export function validate(data: any){
-  if (data.username.lenth < 4 || data.password.lenth < 5) {
+export function validate(username:string,password:string){
+  if (username.length < 4 || password.length < 5) {
     return false
   }
   else {

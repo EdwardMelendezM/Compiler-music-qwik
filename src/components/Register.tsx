@@ -1,5 +1,5 @@
 import { component$} from "@builder.io/qwik";
-import Form from "./form/Form";
+import Form from "./form/FormCustom";
 import useLoginHook from "~/hooks/useLogin";
 
 

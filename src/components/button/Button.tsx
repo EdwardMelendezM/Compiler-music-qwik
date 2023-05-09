@@ -2,17 +2,15 @@ import {component$ } from "@builder.io/qwik";
 
 
 interface ButtonProps{
-  onSubmit?:any
   disabled?:boolean
 }
 
 export default component$(({
   disabled,
-  onSubmit
 }:ButtonProps)=>{
   return (
     <button
-      onClick$={onSubmit}
+      type="submit"
       disabled={disabled}
       class='
       relative

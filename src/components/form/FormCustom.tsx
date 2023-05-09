@@ -1,23 +1,24 @@
 import { component$ } from "@builder.io/qwik";
 import Input from "../input/Input";
 import Button from "../button/Button";
+import { Form } from "@builder.io/qwik-city";
 
 interface FormProps{
   title:string
   label:string
-  onSubmit?:any
-  onChange?:any
+  name:string
   disabled?:boolean
   type?:string
+  action:any
 }
 
 export default component$(({
   title,
   label,
-  onSubmit,
+  name,
+  type,
   disabled,
-  onChange,
-  type
+  action
 }: FormProps)=>{
   return (
       <div class='
@@ -38,15 +39,17 @@ export default component$(({
           ' >
             {label}
           </div>
-          <Input
-            disabled={disabled}
-            onChange={onChange}
-            type={type}
-            />
-          <Button
-            disabled={disabled}
-            onSubmit={onSubmit}
-            />
+          <Form action={action}>
+            <Input
+              disabled={disabled}
+              type={type}
+              name={name}
+              
+              />
+            <Button
+              disabled={disabled}
+              />
+          </Form>
       </div>
   )
 })

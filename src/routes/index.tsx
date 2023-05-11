@@ -1,6 +1,7 @@
-import { component$, $, useTask$,  } from "@builder.io/qwik";
+import { component$, $ } from "@builder.io/qwik";
 import { routeLoader$, useNavigate, z,  } from "@builder.io/qwik-city";
 import { useForm, zodForm$ } from "@modular-forms/qwik";
+import Button from "~/components/button/Button";
 import useLoginHook from "~/hooks/useLogin";
 import { serverValidationEmail, serverValidationPass } from "~/server/loginServer";
 
@@ -54,34 +55,114 @@ export default component$(() => {
     
     return 
   });
-  useTask$(({track})=>{
-    track(() => {})
 
-  })
   return (
+    <div class='
+      flex
+      items-center
+      justify-center
+      w-[100vw]
+      h-[100vh]
+    '>
+
+    <div class='
+        w-[380px]
+        h-[230px]
+        rounded-lg
+      border-l-gray-500
+        flex
+        flex-col
+        justify-between
+    '>
+      
       <Form onSubmit$={handleSubmit}>
         <div
-        class={`${!useLogin.isCorrectEmail ? 'block':'hidden'} `}
+        class={`${!useLogin.isCorrectEmail ? 'block':'hidden'} flex gap-3 flex-col`}
         >
+          <h2 class='text-center text-4xl text-red-500'>Login</h2>
+          <div
+            class='
+                text-center
+                text-xl
+                text-gray-500
+            ' >
+              Ingrese su correo electronico
+          </div>
           <Field name="email">
             {(field, props) => (
-              <input {...props} type="email" value={field.value} />
+              <input
+                {...props}
+                type="email"
+                value={field.value}
+                class='
+                    text-lg
+                    peer
+                    w-full
+                    p-4
+                    font-light
+                    bg-white  
+                    border-2
+                    rounded-md
+                    outline-none
+                    transition
+                    disable:opacity-70
+                    disabled:cursor-not-allowed
+                    tracking-widest
+                '
+              />
             )}
           </Field>
         </div>
         
         <div
-        class={`${!useLogin.isCorrectEmail ? 'hidden' : 'block'} `}
+        class={`
+             
+            ${!useLogin.isCorrectEmail ? 'hidden' : 'flex'}
+           flex gap-3 flex-col
+        `}
         >
+            <h2 class='text-center text-4xl text-red-500'>Login</h2>
+            <div
+              class='
+                text-center
+                text-xl
+                text-gray-500
+            ' >
+              Ingrese su contraseña
+            </div>
           <Field name="password">
             {(field, props) => (
-              <input {...props} type="password" value={field.value} />
+              <input
+                {...props}
+                type="password"
+                value={field.value}
+                class='
+                    text-lg
+                    peer
+                    w-full
+                    p-4
+                    font-light
+                    bg-white  
+                    border-2
+                    rounded-md
+                    outline-none
+                    transition
+                    disable:opacity-70
+                    disabled:cursor-not-allowed
+                    tracking-widest
+                '
+              />
             )}
           </Field>
         </div>
-
-        <input type="submit" value='Validar'/>
-
+        <div class={`mt-3`}>
+          <Button
+            label="Enviar"
+          />    
+        </div>
+        
       </Form>
+    </div>
+    </div>
   )
 });

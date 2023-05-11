@@ -44,9 +44,9 @@ export default component$(({
               disabled={disabled}
               type={type}
               name={name}
-              
               />
             <Button
+              label="Enviar"
               disabled={disabled}
               />
           </Form>

@@ -10,7 +10,15 @@ export default component$(({text,url='/music'}:ItemNavbarProps)=>{
   return (
     <div
       onClick$={() => { navigate(url) }}
-      class='w-full py-4 text-center hover:cursor-pointer hover:bg-slate-300'
+      class='
+        text-white
+        w-full 
+        py-4
+        text-center
+        hover:cursor-pointer
+        hover:text-gray-400
+        transition-all
+        '
     >
       {text}
     </div>

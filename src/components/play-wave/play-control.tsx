@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import type { PlayListPropsWave } from "../play-list/play-list-item";
+import type { PlayListPropsWave } from "../playList/play-list-item";
 
 export const PlayerControl = component$(
   (props: { state: PlayListPropsWave }) => {

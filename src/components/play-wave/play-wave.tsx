@@ -1,17 +1,17 @@
 import WaveSurfer from "wavesurfer.js";
 import {
   component$,
-  useClientEffect$,
   useContext,
+  useVisibleTask$,
 } from "@builder.io/qwik";
-import { PlayerContext } from "~/context/player-ctx";
+import { PlayerContext } from "~/context/playContext";
 
 
 export const PlayerWave = component$((props: { id: string, src: string, preview: string }) => {
 
   const state = useContext(PlayerContext)
 
-  useClientEffect$(() => {
+  useVisibleTask$(() => {
     const waveIn = WaveSurfer.create({
       container: `#${props.id}`,
       waveColor: "#BBBBBB",

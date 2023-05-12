@@ -36,7 +36,7 @@ export const InputSrc = component$(() => {
       <div class={{ "qwik-input-src ": true }}>
         <input
           onClick$={() => (state.value = true)}
-          class={"bg-transparent w-full p-3 rounded-md"}
+          class={"bg-transparent w-full p-3 rounded-md  "}
           id={"input-src-qwik"}
           placeholder="Search tracks, artists, styles or sound effects"
           type="text"

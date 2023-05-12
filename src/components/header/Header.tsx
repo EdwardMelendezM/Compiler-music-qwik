@@ -14,7 +14,7 @@ export default component$(()=>{
         <div class={"flex gap-2"}>
           <Button label="Princing" />
           <Button label="Go" />
-        </div>
+        </div>    
         <div class={"flex gap-2"}>
           <Link href={'/'}>
             <Avatar src="" alt="Avatar"/>

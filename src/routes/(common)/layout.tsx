@@ -1,20 +1,34 @@
-import { component$, Slot } from '@builder.io/qwik';
-import Navbar from '~/components/navbar/Navbar';
+import { component$, Slot, useContextProvider, useStore } from '@builder.io/qwik';
+import FooterPlayer from '~/components/FooterPlayer';
+import Logo from '~/components/Logo';
+import Header from '~/components/header/Header';
+import Sidebar from '~/components/sidebar/Sidebar';
+import { PlayerContext } from '~/context/playContext';
 
 
 export default component$(() => {
-  return (
-    <>
-      <main class='
-        w-[100vw]
-        h-[100vh]
-        overflow-x-hidden
-        flex
+  const statePlayer = useStore({ src: '', play: false })
 
-      '>
-        <Navbar/>
+  useContextProvider(PlayerContext, statePlayer)
+
+  return (
+    <div class={"h-[100vh] flex"}>
+      <div class={"w-[256px] fixed "}>
+        <div class={"bg-gray-50 h-[100vh]"}>
+          <div class={"p-6 border-gray-200 border-b"}>
+            <Logo />
+          </div>
+          <div class={""}>
+            <Sidebar />
+          </div>
+        </div>
+      </div>
+      <div class={"pl-[256px] w-full"}>
+        <Header />
         <Slot />
-      </main>
-    </>
+      </div>
+      <FooterPlayer />
+    </div>
   );
 });
+
